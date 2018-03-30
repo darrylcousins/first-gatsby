@@ -22,23 +22,23 @@ function UserSummary(props) {
   console.debug('UserSummary Props', props)
   let user = props.user
   return (
-    <dl>
-      <dt>
-        full name
+    <dl className="f6 lh-title mv2 bt b--black-10">
+      <dt className="b">
+        full name:
       </dt>
-      <dd>
+      <dd className="ml0 gray">
         { user.firstName } { user.lastName }
       </dd>
-      <dt>
-        username
+      <dt className="b">
+        username:
       </dt>
-      <dd>
+      <dd className="ml0 gray">
         { user.username }
       </dd>
-      <dt>
-        email
+      <dt className="b">
+        email:
       </dt>
-      <dd>
+      <dd className="ml0 gray">
         { user.email }
       </dd>
     </dl>

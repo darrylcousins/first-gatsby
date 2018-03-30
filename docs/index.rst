@@ -17,6 +17,10 @@ With local `npm` install `gatsby` and `react`/`apollo` stack::
   (starter-one) $ npm install --save gatsby-cli
   (starter-one) $ npm install --save apollo-client-preset react-apollo graphql-tag graphql
 
+Other helpers, helmet for html head inserts::
+
+  (starter-one) $ npm install --save react-helmet
+
 Create a barebones gatsby site::
 
   (starter-one) $ gatsby new gatsby-site https://github.com/gatsbyjs/gatsby-starter-hello-world

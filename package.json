@@ -1,6 +1,6 @@
 {
-  "name": "gatsby-starter-hello-world",
-  "description": "Gatsby hello world starter",
+  "name": "first-gatsby",
+  "description": "My first steps with gatsby-react-apollo",
   "license": "MIT",
   "scripts": {
     "develop": "gatsby develop",
@@ -9,8 +9,12 @@
   },
   "dependencies": {
     "apollo-boost": "^0.1.3",
+    "apollo-link-context": "^1.0.7",
     "gatsby": "^1.9.236",
     "gatsby-link": "^1.6.39",
-    "react-apollo": "^2.0.4"
+    "gatsby-plugin-react-helmet": "^2.0.8",
+    "react-apollo": "^2.1.1",
+    "react-form": "^3.4.4",
+    "react-helmet": "^5.2.0"
   }
 }
