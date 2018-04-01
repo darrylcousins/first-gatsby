@@ -1,9 +1,10 @@
 import React from 'react'
 
+import Settings from '../utils/settings.js'
+
 function Lead(props) {
-  console.log('Lead Props', props)
   return (
-    <p className="f5 f4-ns fw4 b measure dib-m lh-copy">
+    <p className={ Settings.style.lead }>
       { props.text }
     </p>
   )

@@ -1,9 +1,10 @@
 import React from 'react'
 
+import Settings from '../utils/settings.js'
+
 function Title(props) {
-  console.log('Title Props', props)
   return (
-    <h1 className="f4 fw6 f1-ns lh-title measure mt0 mb1">
+    <h1 className={ Settings.style.title }>
       { props.text }
     </h1>
   )

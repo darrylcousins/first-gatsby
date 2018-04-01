@@ -1,9 +1,10 @@
 import React from 'react'
 
+import Settings from '../utils/settings.js'
+
 function Article(props) {
-  console.log('Article Props', props)
   return (
-    <article className="tl">
+    <article className={  Settings.style.article }>
       { props.children }
     </article>
   )
