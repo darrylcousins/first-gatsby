@@ -27,14 +27,28 @@ function submitForm(data) {
       }
     }
   `
+  const form = this
   const options = {
     "mutation": M,
   }
   // got a promise
   const promise = Client.mutate(options)
-    .then((data) => { console.log(data) })
-    .catch((errors) => { console.log(errors) })
-  console.log(promise)
+    .then((data) => {
+      const result = data.data.createTokenAuth
+      if (result.formErrors != null) {
+        // feed error back to form
+        console.log(result.formErrors)
+        form.formState.errors = result.formErrors
+        form.resetAll()
+        console.log(form)
+      } else {
+        const token = result.tokenAuth.token
+        console.log(token)
+      }
+    })
+    .catch((errors) => {
+      console.log(errors)
+    })
 
 }
 
@@ -49,6 +63,7 @@ export default () =>
             onSubmit={ formApi.submitForm }
             id="login_form"
             className={ Settings.style.form }>
+            <div>{ formApi.errors && <Message name="__all__" type="error" messages={ formApi.errors }/> }</div>
             <Input
               formApi={ formApi }
               name="username"
