@@ -16,14 +16,14 @@ function InputWrapper(props) {
         className={ Settings.style.label }
       >{ title }</label>
       { children }
+      <div>{ formApi.errors && <Message name={ name } type="error" messages={ formApi.errors }/> }</div>
+      <div>{ formApi.warnings && <Message name={ name } type="warning" messages={ formApi.warning }/> }</div>
+      <div>{ formApi.success && <Message name={ name } type="success" messages={ formApi.success }/> }</div>
       <small
         id={ name + "-help-text" }
         className={ Settings.style.inputHelpText }
       >{ help_text }
       </small>
-      <div>{ formApi.errors && <Message name={ name } type="error" messages={ formApi.errors }/> }</div>
-      <div>{ formApi.warnings && <Message name={ name } type="warning" messages={ formApi.warning }/> }</div>
-      <div>{ formApi.success && <Message name={ name } type="success" messages={ formApi.success }/> }</div>
     </div>
   )
 }

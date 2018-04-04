@@ -10,11 +10,16 @@ import Title from '../components/title.js'
 import Lead from '../components/lead.js'
 import Input from '../components/forms/input.js'
 import PasswordInput from '../components/forms/password.js'
+import Message from '../components/forms/message.js'
 
-const username_validate = username => !username || username.trim() === '' ? 'Username is a required field' : null
-const password_validate = password => !password || password.trim() === '' ? 'Password is a required field' : null
+const username_validate = username => (
+  !username || username.trim() === '' ? 'Username is a required field' : null
+)
+const password_validate = password => (
+  !password || password.trim() === '' ? 'Password is a required field' : null
+)
 
-function submitForm(data) {
+const submitForm = (data, e, formApi) => {
   // failed to work out how to use template substitution at this level.
   const M = gql`
     mutation {
@@ -27,36 +32,44 @@ function submitForm(data) {
       }
     }
   `
-  const form = this
-  const options = {
-    "mutation": M,
-  }
-  // got a promise
-  const promise = Client.mutate(options)
+  // get a promise
+  const promise = Client.mutate({"mutation": M})
     .then((data) => {
-      const result = data.data.createTokenAuth
+      var result = data.data.createTokenAuth
       if (result.formErrors != null) {
-        // feed error back to form
-        console.log(result.formErrors)
-        form.formState.errors = result.formErrors
-        form.resetAll()
-        console.log(form)
+        formApi.setFormState("submitting", false)
+        const errors = JSON.parse(result.formErrors)
+        var field
+        for (var key in errors) {
+          if (errors.hasOwnProperty(key)) {
+            // formApi needs to know that it has a field with key name
+            // using username works well enough for me
+            // TODO create a hidden field along the lines of Password
+            // and call that "__all__""???
+            field = key
+            if (field == "__all__") field = "username"
+            formApi.setError(field, errors[key][0])
+          }
+        }
       } else {
         const token = result.tokenAuth.token
-        console.log(token)
+        localStorage.setItem("token", token)
+        window.location.replace("/")
       }
     })
     .catch((errors) => {
       console.log(errors)
+      formApi.setError("__all__", "Network error, you may need to reload page")
     })
 
+  console.log(e)
 }
 
 export default () =>
   <ApolloProvider client={Client}>
     <div>
       <Title text="Login"/>
-      <Lead text="Use your username and password to log in."/>
+      <Lead text="Enter your username and password to log in."/>
       <Form onSubmit={ submitForm }>
         {formApi => (
           <form

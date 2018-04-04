@@ -15,7 +15,7 @@ function Message(props) {
 
   return (
     <div className={ Settings.style.message }>
-      <small className={ color }>{ text }</small>
+      <span className={ color }>{ text }</span>
     </div>
   )
 }

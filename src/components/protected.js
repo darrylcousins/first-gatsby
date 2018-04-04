@@ -18,7 +18,7 @@ const Protected = ({ refetch }) => (
     {({ loading, error, data: { currentUser } }) => {
       if (loading) return <span>loading....</span>
       if (error) return <span>error....</span>
-      if (currentUser == null) window.location.replace('/login/')
+      if (currentUser == null) window.location.replace('/login')
       return <h1>Welcome back {currentUser.username}</h1>
     }}
   </Query>
