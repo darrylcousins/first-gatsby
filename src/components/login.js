@@ -7,6 +7,7 @@ import { ApolloProvider, Mutation } from 'react-apollo'
 import { Form, Text, Field } from 'react-form'
 import gql from 'graphql-tag'
 
+import Client from '../utils/client.js'
 import Settings from '../utils/settings.js'
 import Input from '../components/forms/input.js'
 import PasswordInput from '../components/forms/password.js'
@@ -16,6 +17,7 @@ class Login extends React.Component {
 
   constructor(props) {
     super(props)
+    this.onSubmit = this.onSubmit.bind(this)
   }
 
   username_validate(username) {
@@ -59,9 +61,8 @@ class Login extends React.Component {
             }
           }
         } else {
-          const token = result.tokenAuth.token
-          localStorage.setItem("token", token)
-          window.location.replace("/")
+          localStorage.setItem("token", result.tokenAuth.token)
+          window.location.replace("/profile")
         }
       })
       .catch((errors) => {
@@ -73,13 +74,14 @@ class Login extends React.Component {
   }
 
   render() {
+    let style = Settings.style
     return (
       <Form onSubmit={ this.onSubmit }>
         {formApi => (
           <form
             onSubmit={ formApi.submitForm }
             id="login_form"
-            className={ Settings.style.form }>
+            className={ style.form }>
             <div>{ formApi.errors && <Message name="__all__" type="error" messages={ formApi.errors }/> }</div>
             <Input
               formApi={ formApi }
@@ -97,7 +99,7 @@ class Login extends React.Component {
             />
             <button
               type="submit"
-              className={ Settings.style.buttonDefault }
+              className={ style.buttonDefault }
             >Submit
             </button>
           </form>

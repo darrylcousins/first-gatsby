@@ -60,8 +60,8 @@ const Settings = {
 
     // definition list
     "dl": "f6 lh-title mv2 bt b--black-10",
-    "dt": "b",
-    "dd": "ml0 gray",
+    "dt": "b dib",
+    "dd": "ml2 gray dib",
   }
 
 }

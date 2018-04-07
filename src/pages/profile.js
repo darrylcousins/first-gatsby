@@ -9,7 +9,7 @@ import Page from '../components/page.js'
 import Profile from '../components/profile.js'
 
 export default () =>
-  <Page title="Password protected page"
+  <Page title="Your profile"
         lead="Cool that you're here.">
     <Article>
       <Profile/>

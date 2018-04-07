@@ -18,6 +18,9 @@ const query = gql`
           email,
           firstName,
           lastName,
+          staff {
+            title
+          }
         }
       }
     }
@@ -33,14 +36,24 @@ const UserSummary = ({ user }) => {
   let style = Settings.style
 
   return (
-    <dl className={ style.dl }>
-      <dt className={ style.dt }>full name:</dt>
-      <dd className={ style.dd }>{ user.firstName } { user.lastName }</dd>
-      <dt className={ style.dt }>username:</dt>
-      <dd className={ style.dd }>{ user.username }</dd>
-      <dt className={ style.dt }>email:</dt>
-      <dd className={ style.dd }>{ user.email }</dd>
-    </dl>
+    <div className="mb4">
+      <dl className={ style.dl }>
+        <dt className={ style.dt }>full name:</dt>
+        <dd className={ style.dd }>{ user.firstName } { user.lastName }</dd>
+      </dl>
+      <dl className={ style.dl }>
+        <dt className={ style.dt }>email:</dt>
+        <dd className={ style.dd }>{ user.email }</dd>
+      </dl>
+      <dl className={ style.dl }>
+        <dt className={ style.dt }>username:</dt>
+        <dd className={ style.dd }>{ user.username }</dd>
+      </dl>
+      <dl className={ style.dl }>
+        <dt className={ style.dt }>role:</dt>
+        <dd className={ style.dd }>{ user.staff.title }</dd>
+      </dl>
+    </div>
   )
 }
 

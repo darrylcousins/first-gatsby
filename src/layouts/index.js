@@ -5,15 +5,12 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 import { withRouter } from 'react-router'
-import { Helmet } from 'react-helmet'
 
+import NavProfile from '../components/nav-profile.js'
 import Settings from '../utils/settings.js'
 
 export default ({ children }) =>
   <div className="w-100 sans-serif">
-    <Helmet>
-      <link rel="stylesheet" href="https://unpkg.com/tachyons@4.9.1/css/tachyons.min.css"/>
-    </Helmet>
     <div className="center w85">
       <header>
         <div className="w-100 pa3 ph5-ns bg-white">
@@ -32,10 +29,7 @@ export default ({ children }) =>
                 className={ Settings.style.navLink }>
                 GitHub
               </Link>
-              <Link to="/login" title="Login"
-                className={ Settings.style.navLink }>
-                Login
-              </Link>
+              <NavProfile/>
             </nav>
           </div>
         </div>
@@ -47,9 +41,9 @@ export default ({ children }) =>
             </div>
       </header>
       <div className="ph3 ph5-ns">
-        <div className="cf mw9 center tc-m">
+        <div className="cf mw9 tc-m">
           <div className="pb3 pb4-ns pt3 pt4-ns mt0 black-70 fl-l w-50-l">
-            <div className="ph3 pv1 background-gray">
+            <div className="ph3 pv1 background-gray tl">
               { children() }
             </div>
           </div>
