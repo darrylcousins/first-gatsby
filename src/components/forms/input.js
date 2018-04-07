@@ -1,3 +1,7 @@
+/**
+ * @file Provides an `Input` component
+ * @author Darryl Cousins <darryljcousins@gmail.com>
+ */
 import React from 'react'
 
 import { Text } from 'react-form'
@@ -6,15 +10,16 @@ import Settings from '../../utils/settings.js'
 import Message from '../../components/forms/message.js'
 import InputWrapper from '../../components/forms/input_wrapper.js'
 
-function Input(props) {
+export default (props) => {
 
   const { formApi, name, title, help_text, validate, ...rest } = props
 
-  var inputStyle = Settings.style.inputDefault
+  let style = Settings.style
+  let inputStyle = style.inputDefault
 
-  if (formApi.errors && name in formApi.errors) inputStyle = Settings.style.inputError
-  if (formApi.warnings && name in formApi.warnings) inputStyle = Settings.style.inputWarning
-  if (formApi.success && name in formApi.success) inputStyle = Settings.style.inputSuccess
+  if (formApi.errors && name in formApi.errors) inputStyle = style.inputError
+  if (formApi.warnings && name in formApi.warnings) inputStyle = style.inputWarning
+  if (formApi.success && name in formApi.success) inputStyle = style.inputSuccess
 
   return (
     <InputWrapper
@@ -37,8 +42,3 @@ function Input(props) {
     </InputWrapper>
   )
 }
-
-export default Input
-
-
-

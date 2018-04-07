@@ -1,3 +1,7 @@
+/**
+ * @file Provides a `Profile` component for users
+ * @author Darryl Cousins <darryljcousins@gmail.com>
+ */
 import React from 'react'
 import gql from 'graphql-tag'
 import { Query } from 'react-apollo'
@@ -10,7 +14,7 @@ const Q = gql`
   }
 `
 
-const Protected = ({ refetch }) => (
+export default ({ refetch }) => (
   <Query
     query={ Q }
     fetchPolicy={ refetch ? 'cache-and-network': 'cache-first' }
@@ -23,5 +27,3 @@ const Protected = ({ refetch }) => (
     }}
   </Query>
 )
-
-export default Protected

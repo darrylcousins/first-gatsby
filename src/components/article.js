@@ -1,16 +1,16 @@
+/**
+ * @file Provides an `Article` layout component
+ * @author Darryl Cousins <darryljcousins@gmail.com>
+ */
 import React from 'react'
 
 import Settings from '../utils/settings.js'
 
-function Article(props) {
-  return (
-    <article className={  Settings.style.article }>
-      { props.children }
-    </article>
-  )
-}
-
-export default Article
-
-
-
+/**
+ * `Article` provides the layout for an block of content
+ * @param {component} children - content
+ */
+export default ({ children }) =>
+  <article className={  Settings.style.article }>
+    { children }
+  </article>

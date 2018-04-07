@@ -1,3 +1,7 @@
+/**
+ * @file Provides a `Settings` object for the application
+ * @author Darryl Cousins <darryljcousins@gmail.com>
+ */
 const Settings = {
 
   /**** styles ****/
@@ -13,6 +17,12 @@ const Settings = {
 
     // html article element
     "article": "tl",
+
+    // the home link element in navbar
+    "homeLink": "f5 f4-ns fw6 mt0 mb1 link black-70 dib",
+
+    // a navbar link element
+    "navLink": "f6 fw6 hover-blue link black-70 mr2 mr3-m mr4-l dib",
 
     //*** forms ***//
 
@@ -46,6 +56,12 @@ const Settings = {
     // default button element style
     "buttonDefault": "f6 link dim br2 ph3 pv2 mb2 fw8 ba b--dark-gray-black near-black bg-moon-gray",
 
+    //*** lists ***//
+
+    // definition list
+    "dl": "f6 lh-title mv2 bt b--black-10",
+    "dt": "b",
+    "dd": "ml0 gray",
   }
 
 }

@@ -1,3 +1,7 @@
+/**
+ * @file Provides an `PasswordInput` component
+ * @author Darryl Cousins <darryljcousins@gmail.com>
+ */
 import React from 'react'
 
 import { Field } from 'react-form'
@@ -45,15 +49,16 @@ const PasswordField = props => (
   </Field>
 )
 
-function PasswordInput(props) {
+export default (props) => {
 
   const { formApi, name, title, help_text, validate, ...rest } = props
 
-  var inputStyle = Settings.style.inputDefault
+  let style = Settings.style
+  let inputStyle = style.inputDefault
 
-  if (formApi.errors && name in formApi.errors) inputStyle = Settings.style.inputError
-  if (formApi.warnings && name in formApi.warnings) inputStyle = Settings.style.inputWarning
-  if (formApi.success && name in formApi.success) inputStyle = Settings.style.inputSuccess
+  if (formApi.errors && name in formApi.errors) inputStyle = style.inputError
+  if (formApi.warnings && name in formApi.warnings) inputStyle = style.inputWarning
+  if (formApi.success && name in formApi.success) inputStyle = style.inputSuccess
 
   return (
     <InputWrapper
@@ -73,5 +78,3 @@ function PasswordInput(props) {
     </InputWrapper>
   )
 }
-
-export default PasswordInput

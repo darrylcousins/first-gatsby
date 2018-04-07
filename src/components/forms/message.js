@@ -1,10 +1,14 @@
+/**
+ * @file Provides an `Message` component
+ * @author Darryl Cousins <darryljcousins@gmail.com>
+ */
 import React from 'react'
 import { ApolloProvider } from 'react-apollo'
 import { Form, Text, Field } from 'react-form'
 
 import Settings from '../../utils/settings.js'
 
-function Message(props) {
+export default (props) => {
 
   const { name, type, messages } = props
 
@@ -19,5 +23,3 @@ function Message(props) {
     </div>
   )
 }
-
-export default Message

@@ -1,19 +1,17 @@
+/**
+ * @file Provides a `users` route for a fetched list of users
+ * @author Darryl Cousins <darryljcousins@gmail.com>
+ */
 import React from 'react'
-import { ApolloProvider } from 'react-apollo'
 
-import Client from '../utils/client.js'
 import Article from '../components/article.js'
-import Lead from '../components/lead.js'
-import Title from '../components/title.js'
 import Users from '../components/users.js'
+import Page from '../components/page.js'
 
 export default () =>
-  <ApolloProvider client={Client}>
-    <div>
-      <Title text="Users"/>
-      <Lead text="List of users of the site"/>
-      <Article>
-        <Users/>
-      </Article>
-    </div>
-  </ApolloProvider>
+  <Page title="Users"
+        lead="List of users of the site">
+    <Article>
+      <Users/>
+    </Article>
+  </Page>

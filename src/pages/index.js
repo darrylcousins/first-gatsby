@@ -1,14 +1,14 @@
+/**
+ * @file Provides a `index` route
+ * @author Darryl Cousins <darryljcousins@gmail.com>
+ */
 import React from 'react'
-import { ApolloProvider } from 'react-apollo'
 
-import Client from '../utils/client.js'
-import Title from '../components/title.js'
-import Lead from '../components/lead.js'
+import Page from '../components/page.js'
+import Article from '../components/article.js'
 
 export default () =>
-  <ApolloProvider client={Client}>
-    <div>
-      <Title text="Keep diary of tasks"/>
-      <Lead text="How do you spend your day?"/>
-    </div>
-  </ApolloProvider>
+  <Page title="Keep diary of tasks"
+        lead="How do you spend your day">
+    <Article><strong>Here</strong> it all begins.</Article>
+  </Page>

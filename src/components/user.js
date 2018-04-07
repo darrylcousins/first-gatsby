@@ -1,6 +1,7 @@
 import React from 'react'
 
-function User(props) {
+// User
+export default (props) {
   console.log('Props', props)
   let user = props.user
   return (
@@ -26,6 +27,3 @@ function User(props) {
     </dl>
   )
 }
-
-export default User
-

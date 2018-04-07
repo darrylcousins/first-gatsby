@@ -1,3 +1,7 @@
+/**
+ * @file Provides a `client` for graphql queries
+ * @author Darryl Cousins <darryljcousins@gmail.com>
+ */
 import { ApolloClient } from 'apollo-client'
 import { createHttpLink } from 'apollo-link-http'
 import { setContext } from 'apollo-link-context'
@@ -7,7 +11,7 @@ const httpLink = createHttpLink({
   uri: 'http://127.0.0.1:4000/graphql'
 })
 
-const authLink = setContext((_, { headers }) => {
+const authLink = setContext((request, { headers }) => {
   const token = localStorage.getItem('token');
   console.log("TOKEN:", token)
   return {
@@ -18,10 +22,7 @@ const authLink = setContext((_, { headers }) => {
   }
 })
 
-const Client = new ApolloClient({
+export default new ApolloClient({
   link: authLink.concat(httpLink),
   cache: new InMemoryCache().restore(window.__APOLLO_STATE__),
 })
-
-export default Client
-
