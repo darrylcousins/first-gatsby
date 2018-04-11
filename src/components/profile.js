@@ -3,6 +3,11 @@
  * @author Darryl Cousins <darryljcousins@gmail.com>
  */
 import React from 'react'
+import { BrowserRouter as Router,
+  Route,
+  Link,
+  Redirect,
+  withRouter } from 'react-router-dom'
 import gql from 'graphql-tag'
 import { Query } from 'react-apollo'
 
@@ -36,6 +41,12 @@ class Profile extends React.Component {
 
   render(refetch) {
     let style = Settings.style
+    if ( this.props.match !== undefined) {
+      console.log(this.props.match.params.username)
+      return (
+        <div>{ this.props.match.params.username }</div>
+      )
+    }
     return (
       <Query
         query={ Q }
@@ -45,8 +56,14 @@ class Profile extends React.Component {
           if (loading) return <span>loading....</span>
           if (error) return <div><strong>Error:</strong> { error.message }</div>
           if (currentUser == null) {
-            this.context.router.history.push('/login')
-            return null
+            return (
+              <Redirect
+                to={{
+                  pathname: "/login",
+                  state: { from: this.props.location }
+                }}
+              />
+            )
           }
           let user = currentUser
           return (

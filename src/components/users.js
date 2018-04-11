@@ -3,6 +3,7 @@
  * @author Darryl Cousins <darryljcousins@gmail.com>
  */
 import React from 'react'
+import { Link } from 'react-router-dom'
 import { Query } from 'react-apollo'
 import gql from 'graphql-tag'
 
@@ -36,24 +37,27 @@ const UserSummary = ({ user }) => {
   let style = Settings.style
 
   return (
-    <div className="mb4">
-      <dl className={ style.dl }>
-        <dt className={ style.dt }>full name:</dt>
-        <dd className={ style.dd }>{ user.firstName } { user.lastName }</dd>
-      </dl>
-      <dl className={ style.dl }>
-        <dt className={ style.dt }>email:</dt>
-        <dd className={ style.dd }>{ user.email }</dd>
-      </dl>
-      <dl className={ style.dl }>
-        <dt className={ style.dt }>username:</dt>
-        <dd className={ style.dd }>{ user.username }</dd>
-      </dl>
-      <dl className={ style.dl }>
-        <dt className={ style.dt }>role:</dt>
-        <dd className={ style.dd }>{ user.staff.title }</dd>
-      </dl>
-    </div>
+    <Link className={ style.blockLink }
+      to={ `/${ user.username }` }>
+      <div className={ style.dlWrapper }>
+        <dl className={ style.dl }>
+          <dt className={ style.dt }>full name:</dt>
+          <dd className={ style.dd }>{ user.firstName } { user.lastName }</dd>
+        </dl>
+        <dl className={ style.dl }>
+          <dt className={ style.dt }>email:</dt>
+          <dd className={ style.dd }>{ user.email }</dd>
+        </dl>
+        <dl className={ style.dl }>
+          <dt className={ style.dt }>username:</dt>
+          <dd className={ style.dd }>{ user.username }</dd>
+        </dl>
+        <dl className={ style.dl }>
+          <dt className={ style.dt }>role:</dt>
+          <dd className={ style.dd }>{ user.staff.title }</dd>
+        </dl>
+      </div>
+    </Link>
   )
 }
 

@@ -22,7 +22,7 @@ const Settings = {
     "homeLink": "f5 f4-ns fw6 mt0 mb1 link black-70 dib",
 
     // a navbar link element
-    "navLink": "f6 fw6 hover-blue link black-70 mr2 mr3-m mr4-l dib",
+    "navLink": "link dim f6 fw6 hover-blue link black-70 mr2 mr3-m mr4-l dib pointer",
 
     //*** forms ***//
 
@@ -56,11 +56,15 @@ const Settings = {
     // default button element style
     "buttonDefault": "f6 link dim br2 ph3 pv2 mb2 fw8 ba b--dark-gray-black near-black bg-moon-gray",
 
+    // wrap a block in a link - e.g users list
+    "blockLink": "pointer",
+
     //*** lists ***//
 
     // definition list
-    "dl": "f6 lh-title mv2 bt b--black-10",
-    "dt": "b dib",
+    "dlWrapper": "dim mb4",
+    "dl": "f6 lh-title mv2 bb b--black-10",
+    "dt": "b dark-gray dib",
     "dd": "ml2 gray dib",
   }
 

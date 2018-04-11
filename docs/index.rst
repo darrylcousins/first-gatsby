@@ -12,6 +12,10 @@ Install `nodeenv` into same directory and activate::
   (starter-one) $ nodeenv -p
   (starter-one) $ source bin/activate
 
+Create a react starter app::
+
+  (starter-one) $ npx create-react-app work
+
 With local `npm` install `gatsby` and `react`/`apollo` stack::
 
   (starter-one) $ npm install --save gatsby-cli

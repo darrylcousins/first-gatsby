@@ -9,6 +9,6 @@ import Article from '../components/article.js'
 
 export default () =>
   <Page title="Keep diary of tasks"
-        lead="How do you spend your day">
+        lead="How do you spend your day?">
     <Article><strong>Here</strong> it all begins.</Article>
   </Page>

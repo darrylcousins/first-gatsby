@@ -6,7 +6,7 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 import { withRouter } from 'react-router'
 
-import NavProfile from '../components/nav-profile.js'
+import ProfileForNav from '../components/profile-for-nav.js'
 import Settings from '../utils/settings.js'
 
 export default ({ children }) =>
@@ -24,12 +24,12 @@ export default ({ children }) =>
               </Link>
             </div>
             <nav className="db dtc-ns v-mid w-100 tl tr-ns mt2 mt0-ns">
+              <ProfileForNav/>
               <Link title="School on GitHub"
                 to="https://github.com/darrylcousins/school"
                 className={ Settings.style.navLink }>
                 GitHub
               </Link>
-              <NavProfile/>
             </nav>
           </div>
         </div>
